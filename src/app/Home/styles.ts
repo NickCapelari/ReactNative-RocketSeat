@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#d0d2d8",
     paddingTop: 62,
-    padding: 24,
+    paddingBottom: 24,
     gap: 24,
   },
 
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     width: "100%",
-    backgroundColor: "#fff",
+    backgroundColor: "#cdf6fc",
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     padding: 24,
