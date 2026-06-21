@@ -11,7 +11,11 @@ import { styles } from "./styles"
 
 
 const FILTER_STATUS: FilterStatus[] = [FilterStatus.PENDING, FilterStatus.DONE]
-const ITEMS = Array.from({ length: 100 }).map((_, index) => String(index))
+const ITEMS = [
+  { id: "1", status: FilterStatus.DONE, description: "Pacote de café" },
+  { id: "2", status: FilterStatus.PENDING, description: "Macarrão" },
+  { id: "3", status: FilterStatus.PENDING, description: "Cebolas" },
+]
 
 export function Home() {
   return (
@@ -33,19 +37,23 @@ export function Home() {
           </TouchableOpacity>
         </View>
 
-        
+
 
         <FlatList
           data={ITEMS}
-          keyExtractor={(item) => item}
-          renderItem={({item}) => (
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
             <Item
-              data={{ status: FilterStatus.DONE, description: item }}
+              data={item}
               onStatus={() => console.log("Muda status")}
               onRemove={() => console.log("remover")}
 
             />
           )}
+          showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={()=><View style={styles.separator}/>}
+          contentContainerStyle={styles.listContent}
+          ListEmptyComponent={() => <Text style={styles.empty}>Nenhum Item adicionado</Text>}
         />
 
 
